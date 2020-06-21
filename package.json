@@ -1,0 +1,29 @@
+{
+  "name": "dependencies-badges",
+  "version": "0.0.1",
+  "author": {
+    "name": "Ewilan 'EwieFairy' Rivière",
+    "email": "ewilan@dotslashplay.it",
+    "url": "https://github.com/ewilan-riviere"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ewilan-riviere/dependencies-badges"
+  },
+  "license": "MIT",
+  "private": false,
+  "homepage": "https://ewilan-riviere.github.io/dependencies-badges/",
+  "scripts": {
+    "dev": "vue serve example/main.js",
+    "lint": "eslint --ext .js,.vue src"
+  },
+  "devDependencies": {
+    "babel-eslint": "^10.1.0",
+    "eslint": "^7.2.0",
+    "eslint-config-prettier": "^6.11.0",
+    "eslint-plugin-prettier": "^3.1.4",
+    "eslint-plugin-vue": "^6.1.2",
+    "prettier": "^2.0.5",
+    "vue-template-compiler": "^2.6.11"
+  }
+}
