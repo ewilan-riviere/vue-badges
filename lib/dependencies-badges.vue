@@ -22,10 +22,10 @@
 </template>
 
 <script>
-import dependenciesJSON from './dependencies.json'
+import dependenciesJSON from './dependencies-badges.json'
 
 export default {
-  name: 'Dependencies',
+  name: 'DependenciesBadges',
   /**
    * Usage of props
    *

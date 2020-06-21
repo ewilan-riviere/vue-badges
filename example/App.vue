@@ -12,12 +12,10 @@
 </template>
 
 <script>
-import DependenciesBadges from '../src/dependencies-badges.vue'
+import DependenciesBadges from '../lib/dependencies-badges.vue'
 export default {
   components: {
     DependenciesBadges,
   },
 }
 </script>
-
-<style lang="scss" scoped></style>
