@@ -66,16 +66,32 @@ export default {
       type: Boolean,
       default: false,
     },
+    all: {
+      type: Boolean,
+      default: false,
+    },
   },
   data() {
     return {
-      dependencies: null,
+      dependencies: [],
       alert: false,
       regExp: false,
     }
   },
+  created() {
+    if (this.all) {
+      this.deps = []
+      console.clear()
+      var result = Object.keys(dependenciesJSON).map(function (key) {
+        return dependenciesJSON[key]
+      })
+      this.dependencies = result
+    }
+  },
   mounted() {
-    this.dependencies = this.convertDeps()
+    if (!this.all) {
+      this.dependencies = this.convertDeps()
+    }
     if (this.regExp) {
       let str = 'Hello, world nodejs!'
       let regexp = /js/g // without flag "g", lastIndex property is ignored

@@ -1,6 +1,7 @@
 <template>
   <div>
     <vue-dep-badges
+      :all="true"
       :deps="[
         ['visual studio code', '1.4'],
         ['visual_studio_code', '1.2'],
