@@ -1,6 +1,6 @@
 # **Vue Dependencies Badges**
 
-[![](https://img.shields.io/npm/v/dependencies-badges.svg?style=flat-square&color=cb3837&logo=npm&logoColor=ffffff)](https://www.npmjs.com/package/dependencies-badges)
+[![](https://img.shields.io/npm/v/dependencies-badges.svg?style=flat-square&color=cb3837&logo=npm&logoColor=ffffff)](https://www.npmjs.com/package/vue-dependencies-badges)
 [![](https://img.shields.io/github/license/ewilan-riviere/vuepress-theme-useweb.svg?style=flat-square&color=f05032&logo=git&logoColor=ffffff)](https://github.com/ewilan-riviere/dependencies-badges/blob/master/LICENSE)
 
 [![node.js](https://img.shields.io/static/v1?label=Node.js&message=v11.15&color=339933&style=flat-square&logo=node.js&logoColor=ffffff)](https://nodejs.org/en/)
@@ -13,21 +13,21 @@ Package to easily use static badges from [**shields.io**](https://shields.io/) w
 Install it with Yarn or NPM
 
 ```bash
-yarn add -D dependencies-badges
+yarn add -D vue-dependencies-badges
 ```
 
 **OR**
 
 ```bash
-npm i dependencies-badges --save-dev
+npm i vue-dependencies-badges --save-dev
 ```
 
 Import it, ES6 way, in `main.js` / `app.js` file
 
 ```js
-import DependenciesBadges from 'dependencies-badges'
+import VueDependenciesBadges from 'vue-dependencies-badges'
 
-Vue.use(DependenciesBadges)
+Vue.use(VueDependenciesBadges)
 ```
 
 Use it in a `.vue` file
@@ -35,7 +35,7 @@ Use it in a `.vue` file
 ```vue
 <template>
     <div>
-        <dependencies :data='[["AndroidStudio"]]'></dependencies>
+        <vue-dep-badges :data='[["AndroidStudio"]]'></vue-dep-badges>
     </div>
 </template>
 ```
