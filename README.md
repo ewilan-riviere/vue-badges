@@ -1,4 +1,4 @@
-# **Dependencies Badges**
+# **Vue Dependencies Badges**
 
 [![](https://img.shields.io/npm/v/dependencies-badges.svg?style=flat-square&color=cb3837&logo=npm&logoColor=ffffff)](https://www.npmjs.com/package/dependencies-badges)
 [![](https://img.shields.io/github/license/ewilan-riviere/vuepress-theme-useweb.svg?style=flat-square&color=f05032&logo=git&logoColor=ffffff)](https://github.com/ewilan-riviere/dependencies-badges/blob/master/LICENSE)

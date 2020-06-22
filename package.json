@@ -1,6 +1,6 @@
 {
-  "name": "dependencies-badges",
-  "version": "0.0.11",
+  "name": "vue-dependencies-badges",
+  "version": "0.0.1",
   "author": {
     "name": "Ewilan 'EwieFairy' Rivière",
     "email": "ewilan@dotslashplay.it",
@@ -8,11 +8,11 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/ewilan-riviere/dependencies-badges"
+    "url": "https://github.com/ewilan-riviere/vue-dependencies-badges"
   },
   "license": "MIT",
   "private": false,
-  "homepage": "https://ewilan-riviere.github.io/dependencies-badges/",
+  "homepage": "https://ewilan-riviere.github.io/documentation/vue-dependencies-badges/",
   "scripts": {
     "dev": "vue serve example/main.js",
     "lint": "eslint --ext .js,.vue src"

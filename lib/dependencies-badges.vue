@@ -25,7 +25,7 @@
 import dependenciesJSON from './dependencies-badges.json'
 
 export default {
-  name: 'DependenciesBadges',
+  name: 'VueDependenciesBadges',
   /**
    * Usage of props
    *

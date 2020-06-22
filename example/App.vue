@@ -1,21 +1,21 @@
 <template>
   <div>
-    <dependencies-badges
+    <vue-dependencies-badges
       :data="[
         ['visual studio code'],
         ['visual_studio_code'],
         ['AndroidSDK'],
         ['php'],
       ]"
-    ></dependencies-badges>
+    ></vue-dependencies-badges>
   </div>
 </template>
 
 <script>
-import DependenciesBadges from '../lib/dependencies-badges.vue'
+import VueDependenciesBadges from '../lib/vue-dependencies-badges.vue'
 export default {
   components: {
-    DependenciesBadges,
+    VueDependenciesBadges,
   },
 }
 </script>

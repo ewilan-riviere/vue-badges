@@ -1,7 +1,7 @@
-import DependenciesBadges from './lib/dependencies-badges.vue'
+import VueDependenciesBadges from './lib/vue-dependencies-badges.vue'
 
 export default {
   install(Vue, options) {
-    Vue.component('dependencies-badges', DependenciesBadges)
+    Vue.component('v-dep-badges', VueDependenciesBadges)
   },
 }
