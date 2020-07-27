@@ -35,7 +35,7 @@ Use it in a `.vue` file
 ```vue
 <template>
     <div>
-        <dependencies :data='[["AndroidStudio"]]'></dependencies>
+        <dependencies :deps='[["AndroidStudio"]]'></dependencies>
     </div>
 </template>
 ```
