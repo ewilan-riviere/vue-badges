@@ -2,6 +2,9 @@ import VueDependenciesBadges from './lib/vue-dependencies-badges.vue'
 
 export default {
   install(Vue, options) {
-    Vue.component('vue-dep-badges', VueDependenciesBadges)
+    if (options) {
+      // Vue.prototype.$option = options.option
+    }
+    Vue.component('dependencies', VueDependenciesBadges)
   },
 }

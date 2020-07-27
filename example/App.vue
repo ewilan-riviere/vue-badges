@@ -1,7 +1,13 @@
 <template>
   <div>
-    <vue-dep-badges
-      :all="true"
+    <div>
+      All badges available
+    </div>
+    <dependencies :all="true"></dependencies>
+    <div>
+      Custom badges
+    </div>
+    <dependencies
       :deps="[
         ['visual studio code', '1.4'],
         ['visual_studio_code', '1.2'],
@@ -21,15 +27,6 @@
           },
         ],
       ]"
-    ></vue-dep-badges>
+    ></dependencies>
   </div>
 </template>
-
-<script>
-import VueDependenciesBadges from '../lib/vue-dependencies-badges.vue'
-export default {
-  components: {
-    VueDepBadges: VueDependenciesBadges,
-  },
-}
-</script>

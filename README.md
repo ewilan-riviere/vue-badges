@@ -25,9 +25,9 @@ npm i vue-dependencies-badges --save-dev
 Import it, ES6 way, in `main.js` / `app.js` file
 
 ```js
-import VueDependenciesBadges from 'vue-dependencies-badges'
+import Dependencies from 'vue-dependencies-badges'
 
-Vue.use(VueDependenciesBadges)
+Vue.use(Dependencies)
 ```
 
 Use it in a `.vue` file
@@ -35,11 +35,11 @@ Use it in a `.vue` file
 ```vue
 <template>
     <div>
-        <vue-dep-badges :data='[["AndroidStudio"]]'></vue-dep-badges>
+        <dependencies :data='[["AndroidStudio"]]'></dependencies>
     </div>
 </template>
 ```
 
 ## **License**
 
-[**MIT**](https://github.com/ewilan-riviere/dependencies-badges/blob/master/LICENSE) &copy; [**@ewilan-riviere**](https://github.com/ewilan-riviere)
+**MIT** &copy; [**@ewilan-riviere**](https://github.com/ewilan-riviere)
