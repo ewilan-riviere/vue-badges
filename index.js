@@ -1,10 +1,10 @@
-import VueDependenciesBadges from './lib/vue-dependencies-badges.vue'
+import VueBadges from './lib/vue-badges.vue'
 
 export default {
   install(Vue, options) {
     if (options) {
       // Vue.prototype.$option = options.option
     }
-    Vue.component('dependencies', VueDependenciesBadges)
+    Vue.component('vue-badges', VueBadges)
   },
 }
