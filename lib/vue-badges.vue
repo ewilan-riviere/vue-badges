@@ -58,7 +58,7 @@ export default {
    * if language don't exist into database.json, infos will be limited, if you want some infos, add it
    */
   props: {
-    deps: {
+    badges: {
       type: Array,
       default: () => [],
     },
@@ -80,7 +80,7 @@ export default {
   },
   created() {
     if (this.all) {
-      this.deps = []
+      this.badges = []
       console.clear()
       var result = Object.keys(dependenciesJSON).map(function (key) {
         return dependenciesJSON[key]
@@ -133,7 +133,7 @@ export default {
      * Convert deps prop into array of objects and inject dependencies.json infos into this array
      */
     convertDeps() {
-      const dependenciesFromProp = this.deps
+      const dependenciesFromProp = this.badges
       let dependenciesObjects = []
       // take prop array and convert it to object
       dependenciesFromProp.forEach((dependency) => {

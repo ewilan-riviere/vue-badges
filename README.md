@@ -8,6 +8,8 @@
 
 Package to easily use static badges from [**shields.io**](https://shields.io/) with icon from [**simpleicons.org**](https://simpleicons.org/) into documentation (or any Vue.js project).
 
+![vue-badges](./lib/vue-badges.jpg)
+
 ## **Documentation**
 
 Install it with Yarn or NPM
@@ -36,6 +38,21 @@ Use it in a `.vue` file
 <template>
     <div>
         <vue-badges :deps='[["AndroidStudio"]]'></vue-badges>
+        <vue-badges
+          :badges="[
+            ['php'],
+            ['php', '7.4'],
+            ['nodejs'],
+            [
+              {
+                label: 'My new tech',
+                version: '2.4',
+                color: '3DDC84',
+                logo: 'android',
+              },
+            ],
+          ]"
+        ></vue-badges>
     </div>
 </template>
 ```
@@ -53,6 +70,14 @@ By default, *Tailwind CSS* use **preflight** and apply `display: block;` on `<im
 }
 </style>
 ```
+
+## *API*
+
+| Props        | Type    | Default | Describe                                                                   |
+|--------------|---------|---------|----------------------------------------------------------------------------|
+| badges | Array  | [] | Extension of file, display it on header and get correct color if available |
+| iconsColored         | Boolean  | false      | Display badges with colored icons, default display white icons |
+| all    | Boolean | false    | Display all supported badges |
 
 ## **License**
 

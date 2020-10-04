@@ -12,7 +12,7 @@
         Custom badges
       </div>
       <vue-badges
-        :deps="[
+        :badges="[
           ['visual studio code', '1.4'],
           ['visual_studio_code', '1.2'],
           ['visual-studio-code'],
@@ -37,13 +37,13 @@
 </template>
 
 <script>
-import Hero from './Hero'
+import Hero from "./Hero";
 
 export default {
   components: {
     Hero,
   },
-}
+};
 </script>
 
 <style>
