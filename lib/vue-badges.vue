@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div class="badges-section" v-if="!alert">
+  <span>
+    <span class="badges-section" v-if="!alert">
       <span
         v-for="(dependency, dependencyId) in dependencies"
         :key="dependencyId"
@@ -19,12 +19,12 @@
           />
         </a>
       </span>
-    </div>
-    <div v-else>
+    </span>
+    <span v-else>
       <span class="text-red font-mono">
         deps prop are not set correctly
       </span>
-      <div>
+      <span>
         Respect a structure like this
         <pre>
         &lt;vue-dep-badges
@@ -35,16 +35,16 @@
           ]"
         &gt;&lt;/vue-dep-badges&gt;
         </pre>
-      </div>
-    </div>
-  </div>
+      </span>
+    </span>
+  </span>
 </template>
 
 <script>
-import dependenciesJSON from './database.json'
+import dependenciesJSON from "./database.json";
 
 export default {
-  name: 'VueBadges',
+  name: "VueBadges",
   /**
    * Usage of props
    *
@@ -76,79 +76,79 @@ export default {
       dependencies: [],
       alert: false,
       regExp: false,
-    }
+    };
   },
   created() {
     if (this.all) {
-      this.badges = []
-      console.clear()
+      this.badges = [];
+      console.clear();
       var result = Object.keys(dependenciesJSON).map(function (key) {
-        return dependenciesJSON[key]
-      })
-      this.dependencies = result
+        return dependenciesJSON[key];
+      });
+      this.dependencies = result;
     }
   },
   mounted() {
     if (!this.all) {
-      this.dependencies = this.convertDeps()
+      this.dependencies = this.convertDeps();
     }
     if (this.regExp) {
-      let str = 'Hello, world nodejs!'
-      let regexp = /js/g // without flag "g", lastIndex property is ignored
-      console.log(regexp.exec(str))
+      let str = "Hello, world nodejs!";
+      let regexp = /js/g; // without flag "g", lastIndex property is ignored
+      console.log(regexp.exec(str));
 
-      str = str.replace(regexp, 'JS')
-      console.log(str)
+      str = str.replace(regexp, "JS");
+      console.log(str);
     }
   },
   methods: {
     slugify(text) {
       if (text === undefined) {
-        this.alert = true
-        return
+        this.alert = true;
+        return;
       }
       text = text
         .toString()
-        .replace(/js/g, 'JS') // nodejs => nodeJS
-        .replace(/([a-z])([A-Z])/g, '$1 $2') // AndroidSDK => Android SDK
+        .replace(/js/g, "JS") // nodejs => nodeJS
+        .replace(/([a-z])([A-Z])/g, "$1 $2") // AndroidSDK => Android SDK
         .toLowerCase() // Android SDK => android sdk
         // .replace(/["']/i, '-')
-        .replace(/\s+/g, '-') // visual studio code => visual-studio-code
-        .replace(/\./g, '-') // nuxt.js => nuxt-js
-        .replace(/_/g, '-') // android_studio => android-studio
-        .normalize('NFD') // Remove all accents
+        .replace(/\s+/g, "-") // visual studio code => visual-studio-code
+        .replace(/\./g, "-") // nuxt.js => nuxt-js
+        .replace(/_/g, "-") // android_studio => android-studio
+        .normalize("NFD"); // Remove all accents
       // .replace(/[\u0300-\u036F]/g, '')
       // console.log(text)
 
-      return text
+      return text;
     },
     ifVersionIsInteger(version) {
       if (parseInt(version, 10)) {
-        return 'v'
+        return "v";
       } else {
-        return ''
+        return "";
       }
     },
     /**
      * Convert deps prop into array of objects and inject dependencies.json infos into this array
      */
     convertDeps() {
-      const dependenciesFromProp = this.badges
-      let dependenciesObjects = []
+      const dependenciesFromProp = this.badges;
+      let dependenciesObjects = [];
       // take prop array and convert it to object
       dependenciesFromProp.forEach((dependency) => {
-        const dependencyObject = Object.assign({}, [dependency][0])
-        dependenciesObjects.push(dependencyObject)
-      })
+        const dependencyObject = Object.assign({}, [dependency][0]);
+        dependenciesObjects.push(dependencyObject);
+      });
       // rename first key into "language" and second key into "version" if version is set
-      var i
+      var i;
       for (i = 0; i < dependenciesObjects.length; i++) {
-        const depArray = dependenciesObjects[i]
-        depArray.label = depArray['0']
-        delete depArray['0']
-        if (depArray['1'] !== undefined) {
-          depArray.version = depArray['1']
-          delete depArray['1']
+        const depArray = dependenciesObjects[i];
+        depArray.label = depArray["0"];
+        delete depArray["0"];
+        if (depArray["1"] !== undefined) {
+          depArray.version = depArray["1"];
+          delete depArray["1"];
         }
       }
 
@@ -156,12 +156,12 @@ export default {
       dependenciesObjects = this.injectJsonInfo(
         dependenciesObjects,
         dependenciesJSON
-      )
+      );
 
-      return dependenciesObjects
+      return dependenciesObjects;
     },
     getKeyByValue(object, value) {
-      return Object.keys(object).find((key) => object[key] === value)
+      return Object.keys(object).find((key) => object[key] === value);
     },
     /**
      * Inject dependencies.json infos into this array
@@ -169,87 +169,87 @@ export default {
      * @param JsonData JSON data with all available languages
      */
     injectJsonInfo(PropData, JsonData, debug = false) {
-      var depenciesWithData = []
+      var depenciesWithData = [];
       // compare with "language" key
       for (let i = 0; i < PropData.length; i++) {
-        const propDataLanguage = PropData[i]
-        const currentTech = this.slugify(propDataLanguage.label)
+        const propDataLanguage = PropData[i];
+        const currentTech = this.slugify(propDataLanguage.label);
         // check if language exist in JsonData
         if (debug) {
-          console.log(`Info from deps prop ${currentTech}`)
+          console.log(`Info from deps prop ${currentTech}`);
           console.log(
             `database.json comparaison result: ${JsonData[currentTech]}`
-          )
+          );
         }
 
         if (JsonData[currentTech] !== undefined) {
-          let dependencyMixed = {}
+          let dependencyMixed = {};
           // set dependencyFromJson with JSON data
-          let dependencyFromJson = JsonData[currentTech]
-          let dependencyFromProp = propDataLanguage
+          let dependencyFromJson = JsonData[currentTech];
+          let dependencyFromProp = propDataLanguage;
 
           // rebuild object
-          dependencyMixed.label = dependencyFromJson.label
-          dependencyMixed.id = dependencyFromJson.id + '-' + i
-          dependencyMixed.logo = dependencyFromJson.logo
-          dependencyMixed.link = dependencyFromJson.link
-          if ('version' in dependencyFromProp) {
-            dependencyMixed.version = dependencyFromProp.version
+          dependencyMixed.label = dependencyFromJson.label;
+          dependencyMixed.id = dependencyFromJson.id + "-" + i;
+          dependencyMixed.logo = dependencyFromJson.logo;
+          dependencyMixed.link = dependencyFromJson.link;
+          if ("version" in dependencyFromProp) {
+            dependencyMixed.version = dependencyFromProp.version;
           } else {
-            dependencyMixed.version = dependencyFromJson.version
+            dependencyMixed.version = dependencyFromJson.version;
           }
-          dependencyMixed.color = dependencyFromJson.color
-          dependencyMixed.colorIcon = dependencyFromJson.colorIcon
+          dependencyMixed.color = dependencyFromJson.color;
+          dependencyMixed.colorIcon = dependencyFromJson.colorIcon;
 
           // inject new object into depenciesWithData
-          depenciesWithData.push(dependencyMixed)
+          depenciesWithData.push(dependencyMixed);
         } else {
-          const techNotSupported = {}
+          const techNotSupported = {};
           // prop have array with object
-          if (typeof propDataLanguage.label === 'object') {
-            let definedTech = propDataLanguage.label
+          if (typeof propDataLanguage.label === "object") {
+            let definedTech = propDataLanguage.label;
 
             techNotSupported.label = definedTech.label
               ? definedTech.label
-              : null
-            techNotSupported.id = null
-            techNotSupported.logo = definedTech.logo ? definedTech.logo : null
-            techNotSupported.link = definedTech.link ? definedTech.link : null
+              : null;
+            techNotSupported.id = null;
+            techNotSupported.logo = definedTech.logo ? definedTech.logo : null;
+            techNotSupported.link = definedTech.link ? definedTech.link : null;
             techNotSupported.color = definedTech.color
               ? definedTech.color
-              : '000000'
+              : "000000";
             techNotSupported.colorIcon = definedTech.colorIcon
               ? definedTech.colorIcon
-              : 'ffffff'
+              : "ffffff";
             techNotSupported.version = definedTech.version
               ? definedTech.version
-              : 1.0
+              : 1.0;
             // or default
           } else {
-            techNotSupported.label = propDataLanguage.label
-            techNotSupported.id = null
-            techNotSupported.logo = null
-            techNotSupported.link = null
-            techNotSupported.color = '000000'
-            techNotSupported.colorIcon = 'ffffff'
-            if ('version' in propDataLanguage) {
-              techNotSupported.version = propDataLanguage.version
+            techNotSupported.label = propDataLanguage.label;
+            techNotSupported.id = null;
+            techNotSupported.logo = null;
+            techNotSupported.link = null;
+            techNotSupported.color = "000000";
+            techNotSupported.colorIcon = "ffffff";
+            if ("version" in propDataLanguage) {
+              techNotSupported.version = propDataLanguage.version;
             } else {
-              techNotSupported.version = 1.0
+              techNotSupported.version = 1.0;
             }
           }
 
           // console.log('techNotSupported')
           // console.log(techNotSupported)
 
-          depenciesWithData.push(techNotSupported)
+          depenciesWithData.push(techNotSupported);
         }
       }
 
-      return depenciesWithData
+      return depenciesWithData;
     },
   },
-}
+};
 </script>
 
 <style scoped>
@@ -262,7 +262,7 @@ export default {
 }
 
 .font-mono {
-  font-family: Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New',
+  font-family: Menlo, Monaco, Consolas, "Liberation Mono", "Courier New",
     monospace;
 }
 .text-red {
